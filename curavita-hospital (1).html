@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curavita Hospital — Compassionate Care, Advanced Medicine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#ffffff;
+  --blue-50:#EAF2FF;
+  --blue-100:#D3E4FF;
+  --blue-500:#2C6EF2;
+  --blue-600:#0B5FFF;
+  --blue-700:#0847C7;
+  --navy:#0A1F44;
+  --slate:#5B6B82;
+  --slate-light:#8593AA;
+  --teal:#1FAE7C;
+  --teal-50:#E7F8F1;
+  --border:#E4ECFB;
+  --shadow-sm:0 2px 10px rgba(10,31,68,0.06);
+  --shadow-md:0 12px 32px rgba(10,31,68,0.10);
+  --radius:14px;
+  --radius-lg:20px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  color:var(--slate);
+  background:var(--white);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{
+  font-family:'Poppins',sans-serif;
+  color:var(--navy);
+  margin:0 0 .5em 0;
+  line-height:1.25;
+}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+ul{margin:0;padding:0;list-style:none;}
+button{font-family:inherit;cursor:pointer;}
+.container{max-width:1180px;margin:0 auto;padding:0 24px;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--blue-600);background:var(--blue-50);
+  padding:6px 14px;border-radius:999px;margin-bottom:14px;
+}
+.section{padding:88px 0;}
+.section-head{max-width:640px;margin:0 auto 48px auto;text-align:center;}
+.section-head p{color:var(--slate);font-size:1.02rem;margin-top:8px;}
+.section-alt{background:var(--blue-50);}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 26px;border-radius:999px;font-weight:600;font-size:.95rem;
+  border:2px solid transparent;transition:all .2s ease;white-space:nowrap;
+}
+.btn-primary{background:var(--blue-600);color:#fff;box-shadow:0 8px 20px rgba(11,95,255,.28);}
+.btn-primary:hover{background:var(--blue-700);transform:translateY(-2px);}
+.btn-outline{background:transparent;border-color:var(--blue-600);color:var(--blue-600);}
+.btn-outline:hover{background:var(--blue-50);transform:translateY(-2px);}
+.btn-white{background:#fff;color:var(--blue-600);}
+.btn-white:hover{background:var(--blue-50);transform:translateY(-2px);}
+.btn-sm{padding:10px 18px;font-size:.85rem;}
+
+/* ---------- EKG divider (signature element) ---------- */
+.ekg-divider{width:100%;overflow:hidden;line-height:0;background:transparent;}
+.ekg-divider svg{width:100%;height:40px;display:block;}
+.ekg-path{
+  fill:none;stroke:var(--blue-200,#C9DDFF);stroke-width:2;
+  stroke-dasharray:1400;stroke-dashoffset:1400;
+  transition:stroke-dashoffset 1.6s ease;
+}
+.ekg-divider.in-view .ekg-path{stroke-dashoffset:0;}
+
+/* ---------- Top utility bar ---------- */
+.topbar{background:var(--navy);color:#cfe0ff;font-size:.82rem;}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;padding-top:9px;padding-bottom:9px;flex-wrap:wrap;gap:6px;}
+.topbar-left,.topbar-right{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+.topbar a{color:#cfe0ff;opacity:.9;}
+.topbar a:hover{opacity:1;text-decoration:underline;}
+.topbar strong{color:#fff;}
+
+/* ---------- Header ---------- */
+header{
+  position:sticky;top:0;z-index:100;background:#fff;
+  border-bottom:1px solid var(--border);
+}
+header.scrolled{box-shadow:var(--shadow-sm);}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.4rem;color:var(--navy);}
+.logo .mark{
+  width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--blue-600),var(--blue-500));
+  display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;
+}
+.logo span{color:var(--blue-600);}
+nav.main-nav ul{display:flex;gap:30px;align-items:center;}
+nav.main-nav a{font-weight:500;font-size:.94rem;color:var(--navy);opacity:.85;transition:opacity .15s;position:relative;}
+nav.main-nav a:hover{opacity:1;color:var(--blue-600);}
+nav.main-nav a.active{color:var(--blue-600);opacity:1;}
+.nav-actions{display:flex;align-items:center;gap:14px;}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:6px;}
+.hamburger span{width:24px;height:2px;background:var(--navy);border-radius:2px;}
+.mobile-menu{display:none;flex-direction:column;gap:2px;padding:10px 24px 20px;border-top:1px solid var(--border);}
+.mobile-menu a{padding:12px 0;font-weight:500;color:var(--navy);border-bottom:1px solid var(--border);}
+.mobile-menu.open{display:flex;}
+
+/* ---------- Hero ---------- */
+.hero{background:linear-gradient(180deg,var(--blue-50) 0%, #fff 100%);padding:80px 0 40px;overflow:hidden;}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
+.hero h1{font-size:2.9rem;font-weight:700;letter-spacing:-.02em;}
+.hero h1 em{font-style:normal;color:var(--blue-600);}
+.hero p.lead{font-size:1.08rem;max-width:520px;margin-bottom:30px;}
+.hero-ctas{display:flex;gap:14px;margin-bottom:44px;flex-wrap:wrap;}
+.stat-row{display:flex;gap:36px;flex-wrap:wrap;}
+.stat-badge .num{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.7rem;color:var(--navy);}
+.stat-badge .label{font-size:.82rem;color:var(--slate-light);}
+.hero-art{position:relative;}
+.hero-art .frame{
+  border-radius:28px;background:linear-gradient(135deg,var(--blue-600),var(--blue-500));
+  aspect-ratio:4/4.4;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+  box-shadow:var(--shadow-md);
+}
+.hero-art img{width:100%;height:100%;object-fit:cover;opacity:.95;}
+.hero-blob{position:absolute;border-radius:50%;background:var(--blue-100);z-index:-1;filter:blur(2px);}
+.floating-card{
+  position:absolute;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--shadow-md);
+  display:flex;align-items:center;gap:12px;font-size:.85rem;font-weight:600;color:var(--navy);
+}
+.floating-card .dot{width:34px;height:34px;border-radius:10px;background:var(--teal-50);color:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.fc-1{top:8%;left:-8%;}
+.fc-2{bottom:10%;right:-6%;}
+
+/* ---------- About ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.about-visual{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:5/4.3;}
+.about-visual img{width:100%;height:100%;object-fit:cover;}
+.mission-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
+.mission-card{background:var(--blue-50);border-radius:var(--radius);padding:20px;}
+.mission-card h4{font-size:.95rem;margin-bottom:6px;}
+.mission-card p{font-size:.85rem;margin:0;}
+.feature-list{margin-top:22px;display:grid;gap:14px;}
+.feature-item{display:flex;gap:12px;align-items:flex-start;}
+.feature-item .ico{
+  width:30px;height:30px;border-radius:9px;background:var(--blue-600);color:#fff;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:.85rem;
+}
+.feature-item strong{color:var(--navy);display:block;font-size:.95rem;}
+.feature-item span{font-size:.85rem;}
+
+.stats-strip{background:var(--navy);border-radius:var(--radius-lg);padding:40px;margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+.stats-strip .num{font-family:'Poppins',sans-serif;font-weight:700;font-size:2.2rem;color:#fff;}
+.stats-strip .label{font-size:.85rem;color:#a9c0ea;margin-top:4px;}
+
+/* ---------- Departments ---------- */
+.dept-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.dept-card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:26px 22px;
+  transition:all .2s ease;cursor:pointer;
+}
+.dept-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);border-color:var(--blue-100);}
+.dept-card .ico{
+  width:52px;height:52px;border-radius:14px;background:var(--blue-50);
+  display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px;
+}
+.dept-card h4{font-size:1.03rem;margin-bottom:6px;}
+.dept-card p{font-size:.85rem;margin:0 0 10px 0;}
+.dept-card .toggle{font-size:.8rem;font-weight:600;color:var(--blue-600);display:flex;align-items:center;gap:4px;}
+.dept-more{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:.82rem;}
+.dept-card.open .dept-more{max-height:220px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);}
+.dept-more ul{display:flex;flex-direction:column;gap:6px;margin-bottom:10px;}
+.dept-more li{display:flex;justify-content:space-between;}
+.dept-more .cond{color:var(--slate-light);font-size:.78rem;margin-bottom:8px;}
+
+/* ---------- Doctors ---------- */
+.filter-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px;}
+.filter-chip{
+  padding:9px 18px;border-radius:999px;border:1.5px solid var(--border);background:#fff;
+  font-size:.85rem;font-weight:600;color:var(--slate);transition:all .15s;
+}
+.filter-chip:hover{border-color:var(--blue-500);color:var(--blue-600);}
+.filter-chip.active{background:var(--blue-600);border-color:var(--blue-600);color:#fff;}
+.doctor-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.doctor-card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+  transition:all .2s ease;
+}
+.doctor-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);}
+.doctor-photo{aspect-ratio:16/10;background:var(--blue-50);display:flex;align-items:center;justify-content:center;}
+.doctor-avatar{
+  width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--blue-600),var(--blue-500));
+  color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.3rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.doctor-body{padding:18px;}
+.doctor-body .tag{font-size:.72rem;font-weight:700;color:var(--blue-600);text-transform:uppercase;letter-spacing:.04em;}
+.doctor-body h4{font-size:1rem;margin:6px 0 2px;}
+.doctor-body .qual{font-size:.8rem;color:var(--slate-light);margin-bottom:10px;}
+.doctor-body .exp{font-size:.8rem;display:flex;align-items:center;gap:6px;margin-bottom:14px;color:var(--slate);}
+.doctor-body .btn{width:100%;}
+.doctors-empty{grid-column:1/-1;text-align:center;color:var(--slate-light);padding:40px 0;}
+
+/* ---------- Services ---------- */
+.service-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+.service-card{
+  background:#fff;border-radius:var(--radius);padding:24px 18px;text-align:center;
+  border:1px solid var(--border);transition:all .2s ease;
+}
+.service-card:hover{background:var(--blue-600);border-color:var(--blue-600);transform:translateY(-4px);}
+.service-card:hover h4,.service-card:hover .ico{color:#fff;}
+.service-card:hover .ico{background:rgba(255,255,255,.18);}
+.service-card .ico{
+  width:50px;height:50px;border-radius:13px;background:var(--blue-50);color:var(--blue-600);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.4rem;transition:all .2s ease;
+}
+.service-card h4{font-size:.92rem;transition:color .2s ease;}
+
+/* ---------- Appointment ---------- */
+.appt-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:0;background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);}
+.appt-form{padding:48px;}
+.appt-form h3{font-size:1.5rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-group.full{grid-column:1/-1;}
+.form-group label{font-size:.82rem;font-weight:600;color:var(--navy);}
+.form-group input,.form-group select,.form-group textarea{
+  padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:.92rem;
+  color:var(--navy);background:#fbfdff;transition:border-color .15s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  outline:none;border-color:var(--blue-500);background:#fff;
+}
+.form-group .error{font-size:.76rem;color:#E0453C;display:none;}
+.form-group.invalid input,.form-group.invalid select,.form-group.invalid textarea{border-color:#E0453C;}
+.form-group.invalid .error{display:block;}
+textarea{resize:vertical;min-height:90px;}
+.appt-submit{margin-top:6px;width:100%;}
+.appt-side{background:var(--navy);color:#cfe0ff;padding:48px 36px;}
+.appt-side h4{color:#fff;font-size:1.05rem;margin-bottom:18px;}
+.appt-side .side-item{display:flex;gap:14px;margin-bottom:22px;align-items:flex-start;}
+.appt-side .side-item .ico{
+  width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.1);color:#fff;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.appt-side .side-item strong{color:#fff;display:block;font-size:.9rem;}
+.appt-side .side-item span{font-size:.82rem;}
+.appt-side .btn{margin-top:10px;}
+.confirm-box{display:none;text-align:center;padding:40px 20px;}
+.confirm-box.show{display:block;}
+.confirm-box .check{
+  width:64px;height:64px;border-radius:50%;background:var(--teal-50);color:var(--teal);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:1.8rem;
+}
+.confirm-box h3{color:var(--navy);}
+
+/* ---------- Facilities ---------- */
+.facility-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.facility-card{border-radius:var(--radius);overflow:hidden;position:relative;aspect-ratio:4/3;}
+.facility-card img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease;}
+.facility-card:hover img{transform:scale(1.06);}
+.facility-card .overlay{
+  position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,31,68,.82) 100%);
+  display:flex;align-items:flex-end;padding:16px;
+}
+.facility-card .overlay span{color:#fff;font-weight:600;font-size:.92rem;}
+
+/* ---------- Testimonials ---------- */
+.testi-track-wrap{position:relative;max-width:760px;margin:0 auto;}
+.testi-track{overflow:hidden;}
+.testi-slides{display:flex;transition:transform .4s ease;}
+.testi-slide{min-width:100%;padding:8px;}
+.testi-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px;text-align:center;box-shadow:var(--shadow-sm);}
+.testi-card .stars{color:#F5A623;font-size:1rem;margin-bottom:16px;}
+.testi-card p.quote{font-size:1.08rem;color:var(--navy);font-style:italic;margin-bottom:22px;}
+.testi-person{display:flex;align-items:center;justify-content:center;gap:12px;}
+.testi-person img{width:46px;height:46px;border-radius:50%;object-fit:cover;}
+.testi-person strong{color:var(--navy);font-size:.9rem;display:block;}
+.testi-person span{font-size:.78rem;color:var(--slate-light);}
+.testi-nav{display:flex;justify-content:center;gap:10px;margin-top:24px;}
+.testi-dot{width:9px;height:9px;border-radius:50%;background:var(--blue-100);border:none;padding:0;}
+.testi-dot.active{background:var(--blue-600);width:22px;border-radius:5px;transition:all .2s;}
+.testi-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;
+  background:#fff;border:1px solid var(--border);box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;
+}
+.testi-arrow.left{left:-56px;}
+.testi-arrow.right{right:-56px;}
+
+/* ---------- Blog ---------- */
+.blog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.blog-card{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .2s ease;}
+.blog-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);}
+.blog-card img{aspect-ratio:16/10;object-fit:cover;}
+.blog-body{padding:18px;}
+.blog-cat{font-size:.7rem;font-weight:700;color:var(--blue-600);text-transform:uppercase;letter-spacing:.05em;}
+.blog-body h4{font-size:.98rem;margin:8px 0;}
+.blog-body p{font-size:.83rem;margin-bottom:12px;}
+.blog-meta{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--slate-light);}
+.blog-meta a{color:var(--blue-600);font-weight:600;}
+
+/* ---------- Insurance ---------- */
+.insurance-row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;}
+.insurance-badge{
+  padding:16px 26px;border:1.5px solid var(--border);border-radius:var(--radius);
+  font-weight:700;color:var(--navy);font-size:.92rem;background:#fbfdff;
+}
+
+/* ---------- FAQ ---------- */
+.faq-list{max-width:760px;margin:0 auto;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{
+  width:100%;background:none;border:none;text-align:left;padding:22px 4px;
+  display:flex;justify-content:space-between;align-items:center;font-family:'Poppins',sans-serif;
+  font-weight:600;font-size:1rem;color:var(--navy);
+}
+.faq-q .plus{transition:transform .25s ease;color:var(--blue-600);font-size:1.3rem;}
+.faq-item.open .faq-q .plus{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:.9rem;padding:0 4px;}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:20px;}
+
+/* ---------- CTA banner ---------- */
+.cta-banner{
+  background:linear-gradient(120deg,var(--blue-700),var(--blue-500));
+  border-radius:var(--radius-lg);padding:56px;text-align:center;color:#fff;
+  display:flex;flex-direction:column;align-items:center;gap:20px;
+}
+.cta-banner h2{color:#fff;margin:0;}
+.cta-banner p{color:#dfeaff;max-width:520px;margin:0;}
+.cta-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+
+/* ---------- Footer ---------- */
+footer{background:var(--navy);color:#a9c0ea;padding-top:70px;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:40px;padding-bottom:50px;}
+.footer-grid h4{color:#fff;font-size:.95rem;margin-bottom:18px;}
+.footer-grid p,.footer-grid li,.footer-grid a{font-size:.85rem;}
+.footer-grid a:hover{color:#fff;}
+.footer-grid li{margin-bottom:10px;}
+.footer-logo{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.3rem;color:#fff;margin-bottom:14px;}
+.footer-logo .mark{width:34px;height:34px;border-radius:9px;background:var(--blue-600);display:flex;align-items:center;justify-content:center;}
+.social-row{display:flex;gap:10px;margin-top:18px;}
+.social-row a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;}
+.social-row a:hover{background:var(--blue-600);}
+.hours-table{width:100%;border-collapse:collapse;}
+.hours-table td{padding:5px 0;font-size:.83rem;border-bottom:1px dashed rgba(255,255,255,.08);}
+.newsletter{display:flex;gap:8px;margin-top:6px;}
+.newsletter input{flex:1;padding:11px 14px;border-radius:10px;border:none;font-family:inherit;font-size:.85rem;}
+.map-box{border-radius:var(--radius);overflow:hidden;height:130px;margin-top:16px;background:var(--blue-100);}
+.map-box img{width:100%;height:100%;object-fit:cover;}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);padding:22px 0;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.8rem;
+}
+.footer-bottom a{margin-left:18px;}
+
+/* ---------- Responsive ---------- */
+/* ---------- Admin Panel Modal ---------- */
+.admin-modal-overlay{position:fixed;inset:0;background:rgba(10,31,68,.6);display:none;align-items:center;justify-content:center;z-index:1000;padding:20px;}
+.admin-modal-overlay.open{display:flex;}
+.admin-modal{background:#fff;border-radius:var(--radius-lg);max-width:440px;width:100%;padding:36px;position:relative;max-height:85vh;overflow-y:auto;box-shadow:var(--shadow-md);}
+.admin-modal.wide{max-width:920px;}
+.admin-modal .close-btn{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;background:var(--blue-50);border:none;font-size:1rem;color:var(--navy);display:flex;align-items:center;justify-content:center;}
+.admin-tabs{display:flex;gap:22px;margin-bottom:22px;border-bottom:1px solid var(--border);}
+.admin-tab{padding:10px 2px;font-weight:600;font-size:.9rem;color:var(--slate-light);border-bottom:2px solid transparent;background:none;border-top:none;border-left:none;border-right:none;}
+.admin-tab.active{color:var(--blue-600);border-bottom-color:var(--blue-600);}
+.admin-form{display:none;flex-direction:column;gap:14px;}
+.admin-form.active{display:flex;}
+.admin-form input{padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:.92rem;color:var(--navy);background:#fbfdff;}
+.admin-form input:focus{outline:none;border-color:var(--blue-500);background:#fff;}
+.admin-form .btn{width:100%;margin-top:4px;}
+.admin-msg{font-size:.82rem;padding:10px 14px;border-radius:8px;display:none;margin-bottom:16px;}
+.admin-msg.error{display:block;background:#FDECEC;color:#C0392B;}
+.admin-msg.success{display:block;background:var(--teal-50);color:var(--teal);}
+.admin-slot-note{font-size:.78rem;color:var(--slate-light);margin:0;}
+.admin-dashboard{display:none;}
+.admin-dashboard.active{display:block;}
+.admin-dash-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px;}
+.admin-table-wrap{overflow-x:auto;}
+.admin-table{width:100%;border-collapse:collapse;font-size:.83rem;}
+.admin-table th{background:var(--blue-50);text-align:left;padding:10px 12px;color:var(--navy);white-space:nowrap;}
+.admin-table td{padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap;}
+.admin-empty{text-align:center;padding:40px;color:var(--slate-light);white-space:normal;}
+
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-art{order:-1;max-width:420px;margin:0 auto;}
+  .about-grid{grid-template-columns:1fr;}
+  .dept-grid{grid-template-columns:repeat(2,1fr);}
+  .doctor-grid{grid-template-columns:repeat(2,1fr);}
+  .service-grid{grid-template-columns:repeat(3,1fr);}
+  .facility-grid{grid-template-columns:repeat(2,1fr);}
+  .blog-grid{grid-template-columns:repeat(2,1fr);}
+  .stats-strip{grid-template-columns:repeat(2,1fr);}
+  .appt-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  nav.main-nav{display:none;}
+  .hamburger{display:flex;}
+  .testi-arrow{display:none;}
+}
+@media(max-width:640px){
+  .section{padding:60px 0;}
+  .hero h1{font-size:2.1rem;}
+  .dept-grid,.doctor-grid,.service-grid,.facility-grid,.blog-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .appt-form{padding:30px 22px;}
+  .appt-side{padding:34px 22px;}
+  .footer-grid{grid-template-columns:1fr;}
+  .cta-banner{padding:36px 22px;}
+  .topbar .container{justify-content:center;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP UTILITY BAR ============ -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <span>📞 <strong>24/7 Emergency:</strong> +1 (800) 555-0199</span>
+      <span>✉️ care@curavitahospital.com</span>
+      <span>🕐 Mon–Sun: Open 24 Hours</span>
+    </div>
+    <div class="topbar-right">
+      <a href="#">Patient Portal / Login</a>
+      <a href="#">Careers</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader">
+  <div class="container nav-wrap">
+    <a href="#home" class="logo">
+      <span class="mark">
+        <svg width="21" height="21" viewBox="0 0 32 32" fill="none">
+          <path d="M23 9a11 11 0 1 0 0 14" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+          <path d="M13 16h3.2l1.6-4.4L20 20l1.6-4h3.4" stroke="white" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      Curavita
+    </a>
+    <nav class="main-nav">
+      <ul id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#departments">Departments</a></li>
+        <li><a href="#doctors">Doctors</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#blog">Health Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="#appointment" class="btn btn-primary btn-sm">Book an Appointment</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#departments">Departments</a>
+    <a href="#doctors">Doctors</a>
+    <a href="#services">Services</a>
+    <a href="#facilities">Facilities</a>
+    <a href="#blog">Health Blog</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">🏥 Trusted Multi-Specialty Hospital</div>
+      <h1>Compassionate Care,<br><em>Advanced Medicine.</em></h1>
+      <p class="lead">Curavita Hospital brings together expert specialists, modern technology, and a patient-first philosophy — so every person who walks through our doors gets the care they deserve.</p>
+      <div class="hero-ctas">
+        <a href="#appointment" class="btn btn-primary">Book Appointment</a>
+        <a href="#departments" class="btn btn-outline">Explore Departments</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat-badge"><div class="num">25+</div><div class="label">Years of Experience</div></div>
+        <div class="stat-badge"><div class="num">120+</div><div class="label">Expert Doctors</div></div>
+        <div class="stat-badge"><div class="num">1M+</div><div class="label">Patients Treated</div></div>
+        <div class="stat-badge"><div class="num">14</div><div class="label">Departments</div></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-blob" style="width:260px;height:260px;top:-30px;right:-40px;"></div>
+      <div class="frame">
+        <svg width="46%" height="46%" viewBox="0 0 24 24" fill="none" style="opacity:.9;">
+          <path d="M12 21s-7.5-4.6-10-9.3C.4 8 2.1 4 6 4c2.1 0 3.6 1.1 4.6 2.4C11.6 5.1 13.1 4 15.2 4c3.9 0 5.6 4 4 7.7C19.5 16.4 12 21 12 21z" fill="white" fill-opacity="0.9"/>
+        </svg>
+      </div>
+      <div class="floating-card fc-1">
+        <div class="dot">✅</div>
+        <div>Board-Certified<br>Specialists</div>
+      </div>
+      <div class="floating-card fc-2">
+        <div class="dot">🚑</div>
+        <div>24/7 Emergency<br>Response</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ekg-divider" data-ekg>
+  <svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path class="ekg-path" d="M0 20 L280 20 L310 4 L335 36 L360 20 L900 20 L930 4 L955 36 L980 20 L1200 20"/></svg>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div>
+      <div class="eyebrow">About Curavita</div>
+      <h2>Healing With Expertise, Care, and Integrity</h2>
+      <p>For over 25 years, Curavita Hospital has been a trusted name in healthcare — combining advanced medical technology with a warm, human approach to every patient we treat. Our multidisciplinary teams work together to deliver accurate diagnoses, effective treatment, and long-term wellbeing.</p>
+      <div class="mission-cards">
+        <div class="mission-card">
+          <h4>🎯 Our Mission</h4>
+          <p>To deliver accessible, high-quality healthcare that puts patient safety and dignity first.</p>
+        </div>
+        <div class="mission-card">
+          <h4>🔭 Our Vision</h4>
+          <p>To be the region's most trusted hospital, recognized for clinical excellence and compassion.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="feature-list">
+        <div class="feature-item"><div class="ico">👨‍⚕️</div><div><strong>Expert Doctors</strong><span>120+ specialists across 14 departments</span></div></div>
+        <div class="feature-item"><div class="ico">🏨</div><div><strong>Modern Equipment</strong><span>State-of-the-art diagnostic & surgical technology</span></div></div>
+        <div class="feature-item"><div class="ico">🕐</div><div><strong>24/7 Emergency Care</strong><span>Round-the-clock trauma & critical care units</span></div></div>
+        <div class="feature-item"><div class="ico">💳</div><div><strong>Affordable Treatment</strong><span>Transparent pricing & flexible insurance options</span></div></div>
+        <div class="feature-item"><div class="ico">🏅</div><div><strong>Accredited Care</strong><span>NABH & JCI-aligned quality and safety standards</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="stats-strip">
+      <div><div class="num">25+</div><div class="label">Years of Service</div></div>
+      <div><div class="num">120+</div><div class="label">Doctors</div></div>
+      <div><div class="num">14</div><div class="label">Departments</div></div>
+      <div><div class="num">1M+</div><div class="label">Patients Treated</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="ekg-divider" data-ekg>
+  <svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path class="ekg-path" d="M0 20 L280 20 L310 4 L335 36 L360 20 L900 20 L930 4 L955 36 L980 20 L1200 20"/></svg>
+</div>
+
+<!-- ============ DEPARTMENTS ============ -->
+<section class="section section-alt" id="departments">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Our Departments</div>
+      <h2>Specialized Care, Under One Roof</h2>
+      <p>Curavita Hospital houses 14 specialized departments, each staffed by dedicated experts and equipped with the latest technology.</p>
+    </div>
+    <div class="dept-grid" id="deptGrid"></div>
+  </div>
+</section>
+
+<!-- ============ DOCTORS ============ -->
+<section class="section" id="doctors">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Meet Our Specialists</div>
+      <h2>Doctors You Can Trust</h2>
+      <p>Filter by department to find the right specialist and book your appointment in seconds.</p>
+    </div>
+    <div class="filter-bar" id="filterBar"></div>
+    <div class="doctor-grid" id="doctorGrid"></div>
+  </div>
+</section>
+
+<div class="ekg-divider" data-ekg>
+  <svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path class="ekg-path" d="M0 20 L280 20 L310 4 L335 36 L360 20 L900 20 L930 4 L955 36 L980 20 L1200 20"/></svg>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Our Services</div>
+      <h2>Comprehensive Healthcare Services</h2>
+      <p>From emergencies to everyday wellness, Curavita offers the full spectrum of medical services.</p>
+    </div>
+    <div class="service-grid" id="serviceGrid"></div>
+  </div>
+</section>
+
+<!-- ============ APPOINTMENT BOOKING ============ -->
+<section class="section" id="appointment">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Book an Appointment</div>
+      <h2>Schedule Your Visit</h2>
+      <p>Fill in your details below and our care team will confirm your appointment shortly.</p>
+    </div>
+    <div class="appt-grid">
+      <div class="appt-form">
+        <form id="apptForm" novalidate>
+          <h3>Patient Details</h3>
+          <div class="form-row">
+            <div class="form-group" id="fg-name">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" placeholder="e.g. Sarah Johnson" required>
+              <span class="error">Please enter your full name.</span>
+            </div>
+            <div class="form-group" id="fg-phone">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="e.g. +1 555 123 4567" required>
+              <span class="error">Please enter a valid phone number.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full" id="fg-email">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="you@example.com" required>
+              <span class="error">Please enter a valid email address.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group" id="fg-dept">
+              <label for="deptSelect">Select Department</label>
+              <select id="deptSelect" required>
+                <option value="">Choose a department</option>
+              </select>
+              <span class="error">Please select a department.</span>
+            </div>
+            <div class="form-group" id="fg-doctor">
+              <label for="doctorSelect">Select Doctor</label>
+              <select id="doctorSelect">
+                <option value="">Any available doctor</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group" id="fg-date">
+              <label for="apptDate">Preferred Date</label>
+              <input type="date" id="apptDate" required>
+              <span class="error">Please choose a date.</span>
+            </div>
+            <div class="form-group" id="fg-time">
+              <label for="apptTime">Preferred Time Slot</label>
+              <select id="apptTime" required>
+                <option value="">Select a time slot</option>
+                <option>09:00 AM – 10:00 AM</option>
+                <option>10:00 AM – 11:00 AM</option>
+                <option>11:00 AM – 12:00 PM</option>
+                <option>02:00 PM – 03:00 PM</option>
+                <option>03:00 PM – 04:00 PM</option>
+                <option>05:00 PM – 06:00 PM</option>
+              </select>
+              <span class="error">Please select a time slot.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full" id="fg-reason">
+              <label for="reason">Reason for Visit / Symptoms</label>
+              <textarea id="reason" placeholder="Briefly describe your symptoms or reason for the visit..."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary appt-submit">Confirm Appointment</button>
+        </form>
+        <div class="confirm-box" id="confirmBox">
+          <div class="check">✓</div>
+          <h3>Appointment Request Received!</h3>
+          <p>Thank you, <strong id="confirmName"></strong>. We've sent a confirmation to your email and will reach out shortly to finalize your visit on <strong id="confirmDate"></strong>.</p>
+          <button class="btn btn-outline btn-sm" id="bookAnother" style="margin-top:16px;">Book Another Appointment</button>
+        </div>
+      </div>
+      <div class="appt-side">
+        <h4>Need Immediate Help?</h4>
+        <div class="side-item">
+          <div class="ico">🚑</div>
+          <div><strong>Emergency Hotline</strong><span>+1 (800) 555-0199 — Available 24/7</span></div>
+        </div>
+        <div class="side-item">
+          <div class="ico">🕐</div>
+          <div><strong>OPD Working Hours</strong><span>Mon – Sat: 8:00 AM – 8:00 PM<br>Sun: 9:00 AM – 2:00 PM</span></div>
+        </div>
+        <div class="side-item">
+          <div class="ico">📍</div>
+          <div><strong>Location</strong><span>221 Wellness Avenue, Springfield</span></div>
+        </div>
+        <a href="tel:+18005550199" class="btn btn-white">📞 Call Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ekg-divider" data-ekg>
+  <svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path class="ekg-path" d="M0 20 L280 20 L310 4 L335 36 L360 20 L900 20 L930 4 L955 36 L980 20 L1200 20"/></svg>
+</div>
+
+<!-- ============ FACILITIES ============ -->
+<section class="section" id="facilities">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Infrastructure</div>
+      <h2>World-Class Facilities</h2>
+      <p>Purpose-built spaces and equipment designed around patient comfort and clinical precision.</p>
+    </div>
+    <div class="facility-grid" id="facilityGrid"></div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Patient Stories</div>
+      <h2>What Our Patients Say</h2>
+    </div>
+    <div class="testi-track-wrap">
+      <button class="testi-arrow left" id="testiPrev" aria-label="Previous">‹</button>
+      <div class="testi-track">
+        <div class="testi-slides" id="testiSlides"></div>
+      </div>
+      <button class="testi-arrow right" id="testiNext" aria-label="Next">›</button>
+      <div class="testi-nav" id="testiNav"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOG ============ -->
+<section class="section" id="blog">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Health Blog</div>
+      <h2>Health Tips & Articles</h2>
+      <p>Stay informed with the latest health awareness content from our specialists.</p>
+    </div>
+    <div class="blog-grid" id="blogGrid"></div>
+  </div>
+</section>
+
+<!-- ============ INSURANCE ============ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Insurance & Payments</div>
+      <h2>We Work With Your Insurance</h2>
+      <p>Curavita partners with leading insurance providers and offers flexible payment options.</p>
+    </div>
+    <div class="insurance-row">
+      <div class="insurance-badge">HealthGuard</div>
+      <div class="insurance-badge">MediShield Plus</div>
+      <div class="insurance-badge">CareFirst Insurance</div>
+      <div class="insurance-badge">National Health Cover</div>
+      <div class="insurance-badge">TrustLife</div>
+      <div class="insurance-badge">Cash / Card / UPI</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">FAQs</div>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>Your Health Can't Wait — We're Here for You, 24/7.</h2>
+      <p>Whether it's a routine checkup or an emergency, Curavita Hospital's team is ready to help you and your family.</p>
+      <div class="cta-ctas">
+        <a href="#appointment" class="btn btn-white">Book an Appointment</a>
+        <a href="tel:+18005550199" class="btn btn-outline" style="border-color:#fff;color:#fff;">📞 Emergency: +1 (800) 555-0199</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <span class="mark">
+            <svg width="19" height="19" viewBox="0 0 32 32" fill="none">
+              <path d="M23 9a11 11 0 1 0 0 14" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+              <path d="M13 16h3.2l1.6-4.4L20 20l1.6-4h3.4" stroke="white" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          Curavita Hospital
+        </div>
+        <p>Delivering compassionate, advanced healthcare for over 25 years — because every patient deserves excellent care.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#departments">Departments</a></li>
+          <li><a href="#doctors">Doctors</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#appointment">Book Appointment</a></li>
+          <li><a href="#blog">Health Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Departments</h4>
+        <ul id="footerDeptList"></ul>
+      </div>
+      <div>
+        <h4>Contact & Hours</h4>
+        <ul>
+          <li>📍 221 Wellness Avenue, Springfield</li>
+          <li>📞 +1 (800) 555-0199 (Emergency)</li>
+          <li>📞 +1 (800) 555-0180 (General)</li>
+          <li>✉️ care@curavitahospital.com</li>
+        </ul>
+        <table class="hours-table">
+          <tr><td>Mon – Sat</td><td>8:00 AM – 8:00 PM</td></tr>
+          <tr><td>Sunday</td><td>9:00 AM – 2:00 PM</td></tr>
+          <tr><td>Emergency</td><td>24 Hours / 7 Days</td></tr>
+        </table>
+        <div class="newsletter">
+          <input type="email" placeholder="Your email for health tips">
+          <button class="btn btn-primary btn-sm" type="button">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="map-box">
+      <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=800&auto=format&fit=crop" alt="Map location of Curavita Hospital">
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Curavita Hospital. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#" id="adminPanelLink">Admin Login</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ ADMIN PANEL MODAL ============ -->
+<div class="admin-modal-overlay" id="adminModalOverlay">
+  <div class="admin-modal wide" id="adminModalBox">
+    <button class="close-btn" id="adminCloseBtn" aria-label="Close admin panel">✕</button>
+
+    <div id="adminAuthWrap">
+      <h3>Admin Access</h3>
+      <div class="admin-tabs">
+        <button type="button" class="admin-tab active" id="adminTabLogin">Log In</button>
+        <button type="button" class="admin-tab" id="adminTabSignup" style="display:none;">Create Admin Account</button>
+      </div>
+      <div class="admin-msg" id="adminAuthMsg"></div>
+
+      <form class="admin-form active" id="adminLoginForm">
+        <input type="email" id="adminLoginEmail" placeholder="Admin email" required>
+        <input type="password" id="adminLoginPassword" placeholder="Password" required>
+        <button type="submit" class="btn btn-primary">Log In</button>
+      </form>
+
+      <form class="admin-form" id="adminSignupForm">
+        <p class="admin-slot-note">This creates the one and only admin account for Curavita Hospital. Once created, this option disappears for everyone else.</p>
+        <input type="email" id="adminSignupEmail" placeholder="Your email" required>
+        <input type="password" id="adminSignupPassword" placeholder="Password (min. 6 characters)" required>
+        <input type="password" id="adminSignupConfirm" placeholder="Confirm password" required>
+        <button type="submit" class="btn btn-primary">Create Admin Account</button>
+      </form>
+    </div>
+
+    <div class="admin-dashboard" id="adminDashboard">
+      <div class="admin-dash-head">
+        <h3>Appointment Bookings</h3>
+        <div style="display:flex;gap:10px;">
+          <button class="btn btn-outline btn-sm" id="adminRefreshBtn">Refresh</button>
+          <button class="btn btn-outline btn-sm" id="adminLogoutBtn">Log Out</button>
+        </div>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Name</th><th>Phone</th><th>Email</th><th>Department</th><th>Doctor</th><th>Date</th><th>Time</th><th>Reason</th>
+            </tr>
+          </thead>
+          <tbody id="adminBookingsBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* ============================================================
+   SUPABASE CONNECTION
+=============================================================== */
+const SUPABASE_URL = 'https://ftllfxidhfswkxybzuzs.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_rpaSZ1p0f1N4rHAanCYZcg_zZTt5FEM';
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+/* ============================================================
+   DATA
+=============================================================== */
+const departments = [
+  {id:"cardiology", name:"Cardiology", icon:"🫀", desc:"Comprehensive heart care from diagnostics to advanced cardiac surgery.", conditions:["Coronary artery disease","Arrhythmia","Heart failure"]},
+  {id:"neurology", name:"Neurology", icon:"🧠", desc:"Expert diagnosis and treatment of brain, spine, and nerve disorders.", conditions:["Stroke","Epilepsy","Migraine"]},
+  {id:"orthopedics", name:"Orthopedics", icon:"🦴", desc:"Complete bone, joint, and muscle care including joint replacement.", conditions:["Fractures","Arthritis","Sports injuries"]},
+  {id:"pediatrics", name:"Pediatrics", icon:"🧸", desc:"Gentle, specialized care for infants, children, and adolescents.", conditions:["Growth concerns","Immunizations","Childhood infections"]},
+  {id:"gynecology", name:"Gynecology & Obstetrics", icon:"🤰", desc:"Women's health, prenatal care, and safe delivery services.", conditions:["Pregnancy care","PCOS","Menstrual disorders"]},
+  {id:"oncology", name:"Oncology", icon:"🎗️", desc:"Advanced cancer screening, diagnosis, and personalized treatment.", conditions:["Breast cancer","Lung cancer","Chemotherapy care"]},
+  {id:"dermatology", name:"Dermatology", icon:"🧴", desc:"Skin, hair, and nail care for all ages, medical and cosmetic.", conditions:["Acne","Eczema","Skin infections"]},
+  {id:"ent", name:"ENT", icon:"👂", desc:"Ear, nose, and throat treatment for all age groups.", conditions:["Sinusitis","Hearing loss","Tonsillitis"]},
+  {id:"gastro", name:"Gastroenterology", icon:"🍽️", desc:"Digestive system care from diagnostics to advanced endoscopy.", conditions:["Acid reflux","IBS","Liver disease"]},
+  {id:"nephro", name:"Nephrology & Urology", icon:"🩺", desc:"Kidney and urinary tract care including dialysis services.", conditions:["Kidney stones","UTIs","Chronic kidney disease"]},
+  {id:"surgery", name:"General Surgery", icon:"⚕️", desc:"Safe, modern surgical care across a wide range of procedures.", conditions:["Hernia repair","Appendectomy","Gallbladder surgery"]},
+  {id:"ophthal", name:"Ophthalmology", icon:"👁️", desc:"Complete eye care from routine exams to cataract surgery.", conditions:["Cataracts","Glaucoma","Vision correction"]},
+  {id:"psychiatry", name:"Psychiatry", icon:"💭", desc:"Confidential mental health support and counseling services.", conditions:["Anxiety","Depression","Sleep disorders"]},
+  {id:"dentistry", name:"Dentistry", icon:"🦷", desc:"Full dental care including cosmetic and restorative dentistry.", conditions:["Root canal","Braces","Teeth whitening"]},
+];
+
+const firstNames = ["Sarah","James","Aisha","Michael","Priya","David","Emily","Carlos","Grace","Daniel","Fatima","Robert","Olivia","Wei","Sofia","Ahmed","Laura","Kevin","Nadia","Thomas","Meera","Benjamin","Chloe","Samuel","Layla","Andrew","Hana","Marcus","Ines","Victor","Naomi","Elias","Ruth","Ivan","Zara","Peter","Amara","Leon","Yuki","Noah","Clara","Omar"];
+const lastNames = ["Johnson","Patel","Williams","Chen","Garcia","Okafor","Smith","Rossi","Khan","Brown","Nguyen","Martinez","Kowalski","Silva","Ahmed","Robinson","Lopez","Kim","Bianchi","Adeyemi","Novak","Hughes","Torres","Ibrahim","Fischer","Reyes","Osei","Larsen","Costa","Whitfield"];
+
+let doctors = [];
+let nameIdx = 0;
+departments.forEach(dep=>{
+  for(let i=0;i<3;i++){
+    const fn = firstNames[nameIdx % firstNames.length];
+    const ln = lastNames[(nameIdx*3) % lastNames.length];
+    nameIdx++;
+    doctors.push({
+      name: "Dr. " + fn + " " + ln,
+      deptId: dep.id,
+      deptName: dep.name,
+      qual: i===0 ? "MBBS, MD (Senior Consultant)" : (i===1 ? "MBBS, MS, DNB" : "MBBS, MD, Fellowship"),
+      exp: 6 + ((nameIdx*7) % 19)
+    });
+  }
+});
+
+const services = [
+  {icon:"🚑", name:"24/7 Emergency & Trauma Care"},
+  {icon:"🚗", name:"Ambulance Service"},
+  {icon:"🛏️", name:"ICU & Critical Care"},
+  {icon:"🧪", name:"Diagnostic & Laboratory Services"},
+  {icon:"🩻", name:"Radiology & Imaging (X-Ray, MRI, CT)"},
+  {icon:"💊", name:"Pharmacy"},
+  {icon:"📋", name:"Health Checkup Packages"},
+  {icon:"💻", name:"Telemedicine / Online Consultation"},
+  {icon:"🩸", name:"Blood Bank"},
+  {icon:"🏃", name:"Physiotherapy & Rehabilitation"},
+];
+
+const facilities = [
+  {name:"Modern ICU", img:"1516549655169-df83a0774514"},
+  {name:"Operation Theatres", img:"1551601651-2a8555f1a136"},
+  {name:"Diagnostic Labs", img:"1579154204601-01588f351e67"},
+  {name:"In-Patient Rooms", img:"1586773860418-d37222d8fce3"},
+  {name:"Ambulance Fleet", img:"1587745416684-47953f16f02f"},
+  {name:"Cafeteria", img:"1414235077428-338989a2e8c0"},
+  {name:"Parking", img:"1506521781263-d8422e82f27a"},
+  {name:"Free Wi-Fi Lounges", img:"1521737604893-d14cc237f11d"},
+];
+
+const testimonials = [
+  {name:"Sarah Johnson", role:"Cardiology Patient", rating:5, quote:"The cardiology team at Curavita gave me my life back. Their attentiveness made all the difference during a scary time.", photo:"1494790108377-be9c29b29330"},
+  {name:"Michael Chen", role:"Orthopedics Patient", rating:5, quote:"From my first consultation to physiotherapy, every step felt organized, caring, and genuinely professional.", photo:"1500648767791-00dcc994a43e"},
+  {name:"Fatima Ahmed", role:"Maternity Patient", rating:5, quote:"The maternity ward staff were incredibly supportive throughout my pregnancy and delivery. I felt safe every day.", photo:"1544005313-94ddf0286df2"},
+  {name:"David Martinez", role:"Emergency Care Patient", rating:4, quote:"Quick response, calm staff, and clear communication during an emergency I won't forget. Truly grateful.", photo:"1560250097-0b93528c311a"},
+  {name:"Grace Okafor", role:"General Checkup", rating:5, quote:"Booking was simple and the doctors took time to actually listen. It doesn't feel like a typical hospital visit.", photo:"1489424731084-a5d8b219a5bb"},
+];
+
+const blogPosts = [
+  {cat:"Cardiology", title:"5 Simple Habits for a Healthier Heart", excerpt:"Small daily changes that meaningfully reduce your risk of heart disease over time.", date:"Jul 10, 2026", img:"1490645935967-10de6ba17061"},
+  {cat:"Endocrinology", title:"Understanding Diabetes: Early Signs to Watch", excerpt:"Recognizing symptoms early can help you manage diabetes before complications arise.", date:"Jul 2, 2026", img:"1550831107-1553da8c8464"},
+  {cat:"General Wellness", title:"Why Regular Health Checkups Matter", excerpt:"Preventive screening catches problems early, when they're easiest to treat.", date:"Jun 24, 2026", img:"1576091160399-112ba8d25d1d"},
+  {cat:"Pediatrics", title:"A Parent's Guide to Vaccination Schedules", excerpt:"What to expect at each stage of your child's immunization journey.", date:"Jun 15, 2026", img:"1584515933487-779824d29309"},
+];
+
+const faqs = [
+  {q:"How do I book an appointment at Curavita Hospital?", a:"You can book online using the appointment form on this website, call our general line, or visit the hospital's front desk directly."},
+  {q:"Do you accept health insurance?", a:"Yes, we partner with major insurance providers including HealthGuard, MediShield Plus, and CareFirst Insurance. Please bring your insurance card to your visit."},
+  {q:"What are the hospital's visiting hours?", a:"General visiting hours are 4:00 PM – 7:00 PM daily. ICU visiting hours are limited and coordinated with nursing staff."},
+  {q:"What should I do in a medical emergency?", a:"Call our 24/7 emergency hotline at +1 (800) 555-0199 or come directly to our Emergency & Trauma department, open around the clock."},
+  {q:"Can I request a specific doctor for my appointment?", a:"Yes, use the 'Select Doctor' field on the appointment form, or choose 'Any available doctor' if you'd prefer the next available specialist."},
+  {q:"Is telemedicine available for consultations?", a:"Yes, Curavita offers secure online video consultations for eligible follow-ups and non-emergency concerns."},
+];
+
+/* ============================================================
+   RENDER: DEPARTMENTS
+=============================================================== */
+const deptGrid = document.getElementById('deptGrid');
+departments.forEach(dep=>{
+  const card = document.createElement('div');
+  card.className='dept-card';
+  card.innerHTML = `
+    <div class="ico">${dep.icon}</div>
+    <h4>${dep.name}</h4>
+    <p>${dep.desc}</p>
+    <div class="toggle">View details <span class="arrow">▾</span></div>
+    <div class="dept-more">
+      <div class="cond">Common conditions treated:</div>
+      <ul>${dep.conditions.map(c=>`<li>• ${c}</li>`).join('')}</ul>
+      <a href="#doctors" class="btn btn-outline btn-sm view-doctors-link" data-dept="${dep.id}" style="width:100%;">View Doctors</a>
+    </div>
+  `;
+  card.addEventListener('click', (e)=>{
+    if(e.target.closest('.view-doctors-link')) return;
+    card.classList.toggle('open');
+  });
+  deptGrid.appendChild(card);
+});
+
+/* ============================================================
+   RENDER: DOCTOR FILTER + GRID
+=============================================================== */
+const filterBar = document.getElementById('filterBar');
+const doctorGrid = document.getElementById('doctorGrid');
+
+function renderFilters(){
+  const allChip = document.createElement('button');
+  allChip.className='filter-chip active';
+  allChip.textContent='All Departments';
+  allChip.dataset.dept='all';
+  filterBar.appendChild(allChip);
+  departments.forEach(dep=>{
+    const chip = document.createElement('button');
+    chip.className='filter-chip';
+    chip.textContent=dep.name;
+    chip.dataset.dept=dep.id;
+    filterBar.appendChild(chip);
+  });
+  filterBar.addEventListener('click', e=>{
+    const chip = e.target.closest('.filter-chip');
+    if(!chip) return;
+    filterBar.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+    renderDoctors(chip.dataset.dept);
+  });
+}
+
+function renderDoctors(filter){
+  doctorGrid.innerHTML='';
+  const list = filter==='all' ? doctors : doctors.filter(d=>d.deptId===filter);
+  if(list.length===0){
+    doctorGrid.innerHTML = `<div class="doctors-empty">No doctors found for this department.</div>`;
+    return;
+  }
+  list.forEach(doc=>{
+    const card = document.createElement('div');
+    card.className='doctor-card';
+    card.innerHTML = `
+      <div class="doctor-photo"><div class="doctor-avatar">${doc.name.split(' ').slice(1).map(n=>n[0]).join('').slice(0,2) || doc.name[4]}</div></div>
+      <div class="doctor-body">
+        <div class="tag">${doc.deptName}</div>
+        <h4>${doc.name}</h4>
+        <div class="qual">${doc.qual}</div>
+        <div class="exp">🕐 ${doc.exp} years experience</div>
+        <button class="btn btn-primary btn-sm book-doc-btn" data-name="${doc.name}" data-dept="${doc.deptId}">Book Appointment</button>
+      </div>
+    `;
+    doctorGrid.appendChild(card);
+  });
+}
+renderFilters();
+renderDoctors('all');
+
+/* Jump from department card to doctors filtered */
+document.addEventListener('click', e=>{
+  const link = e.target.closest('.view-doctors-link');
+  if(link){
+    const depId = link.dataset.dept;
+    filterBar.querySelectorAll('.filter-chip').forEach(c=>{
+      c.classList.toggle('active', c.dataset.dept===depId);
+    });
+    renderDoctors(depId);
+  }
+});
+
+/* ============================================================
+   RENDER: SERVICES
+=============================================================== */
+const serviceGrid = document.getElementById('serviceGrid');
+services.forEach(s=>{
+  serviceGrid.innerHTML += `<div class="service-card"><div class="ico">${s.icon}</div><h4>${s.name}</h4></div>`;
+});
+
+/* ============================================================
+   RENDER: FACILITIES
+=============================================================== */
+const facilityGrid = document.getElementById('facilityGrid');
+facilities.forEach(f=>{
+  facilityGrid.innerHTML += `
+    <div class="facility-card">
+      <img src="https://images.unsplash.com/photo-${f.img}?q=80&w=500&auto=format&fit=crop" alt="${f.name} at Curavita Hospital">
+      <div class="overlay"><span>${f.name}</span></div>
+    </div>`;
+});
+
+/* ============================================================
+   RENDER: BLOG
+=============================================================== */
+const blogGrid = document.getElementById('blogGrid');
+blogPosts.forEach(b=>{
+  blogGrid.innerHTML += `
+    <div class="blog-card">
+      <img src="https://images.unsplash.com/photo-${b.img}?q=80&w=500&auto=format&fit=crop" alt="${b.title}">
+      <div class="blog-body">
+        <div class="blog-cat">${b.cat}</div>
+        <h4>${b.title}</h4>
+        <p>${b.excerpt}</p>
+        <div class="blog-meta"><span>${b.date}</span><a href="#">Read More →</a></div>
+      </div>
+    </div>`;
+});
+
+/* ============================================================
+   RENDER: FAQ ACCORDION
+=============================================================== */
+const faqList = document.getElementById('faqList');
+faqs.forEach(f=>{
+  const item = document.createElement('div');
+  item.className='faq-item';
+  item.innerHTML = `
+    <button class="faq-q"><span>${f.q}</span><span class="plus">+</span></button>
+    <div class="faq-a"><p>${f.a}</p></div>
+  `;
+  item.querySelector('.faq-q').addEventListener('click', ()=>{
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+  });
+  faqList.appendChild(item);
+});
+
+/* ============================================================
+   RENDER: TESTIMONIALS CAROUSEL
+=============================================================== */
+const testiSlides = document.getElementById('testiSlides');
+const testiNav = document.getElementById('testiNav');
+testimonials.forEach((t,i)=>{
+  testiSlides.innerHTML += `
+    <div class="testi-slide">
+      <div class="testi-card">
+        <div class="stars">${'★'.repeat(t.rating)}${'☆'.repeat(5-t.rating)}</div>
+        <p class="quote">"${t.quote}"</p>
+        <div class="testi-person">
+          <img src="https://images.unsplash.com/photo-${t.photo}?q=80&w=200&auto=format&fit=crop" alt="${t.name}">
+          <div style="text-align:left;"><strong>${t.name}</strong><span>${t.role}</span></div>
+        </div>
+      </div>
+    </div>`;
+  testiNav.innerHTML += `<button class="testi-dot${i===0?' active':''}" data-i="${i}"></button>`;
+});
+let testiIdx = 0;
+function goToTesti(i){
+  testiIdx = (i + testimonials.length) % testimonials.length;
+  testiSlides.style.transform = `translateX(-${testiIdx*100}%)`;
+  document.querySelectorAll('.testi-dot').forEach((d,di)=>d.classList.toggle('active', di===testiIdx));
+}
+document.getElementById('testiPrev').addEventListener('click', ()=>goToTesti(testiIdx-1));
+document.getElementById('testiNext').addEventListener('click', ()=>goToTesti(testiIdx+1));
+testiNav.addEventListener('click', e=>{
+  const dot = e.target.closest('.testi-dot');
+  if(dot) goToTesti(Number(dot.dataset.i));
+});
+let testiAuto = setInterval(()=>goToTesti(testiIdx+1), 6000);
+document.querySelector('.testi-track-wrap').addEventListener('mouseenter', ()=>clearInterval(testiAuto));
+document.querySelector('.testi-track-wrap').addEventListener('mouseleave', ()=>{ testiAuto = setInterval(()=>goToTesti(testiIdx+1), 6000); });
+
+/* ============================================================
+   FOOTER DEPARTMENT LIST
+=============================================================== */
+const footerDeptList = document.getElementById('footerDeptList');
+departments.slice(0,7).forEach(d=>{
+  footerDeptList.innerHTML += `<li><a href="#departments">${d.name}</a></li>`;
+});
+
+/* ============================================================
+   APPOINTMENT FORM: dept -> doctor dropdown, validation, submit
+=============================================================== */
+const deptSelect = document.getElementById('deptSelect');
+const doctorSelect = document.getElementById('doctorSelect');
+departments.forEach(dep=>{
+  deptSelect.innerHTML += `<option value="${dep.id}">${dep.name}</option>`;
+});
+
+function populateDoctorSelect(deptId){
+  doctorSelect.innerHTML = '<option value="">Any available doctor</option>';
+  const list = deptId ? doctors.filter(d=>d.deptId===deptId) : doctors;
+  list.forEach(doc=>{
+    doctorSelect.innerHTML += `<option value="${doc.name}">${doc.name}</option>`;
+  });
+}
+populateDoctorSelect('');
+deptSelect.addEventListener('change', ()=>populateDoctorSelect(deptSelect.value));
+
+/* Pre-fill from "Book Appointment" buttons on doctor cards */
+document.addEventListener('click', e=>{
+  const btn = e.target.closest('.book-doc-btn');
+  if(!btn) return;
+  deptSelect.value = btn.dataset.dept;
+  populateDoctorSelect(btn.dataset.dept);
+  doctorSelect.value = btn.dataset.name;
+  document.getElementById('appointment').scrollIntoView({behavior:'smooth'});
+});
+
+/* Set min date to today */
+const apptDateInput = document.getElementById('apptDate');
+apptDateInput.min = new Date().toISOString().split('T')[0];
+
+/* Form validation + fake submit */
+const apptForm = document.getElementById('apptForm');
+const confirmBox = document.getElementById('confirmBox');
+
+function validateField(id, valid){
+  const fg = document.getElementById(id);
+  fg.classList.toggle('invalid', !valid);
+  return valid;
+}
+
+apptForm.addEventListener('submit', async function(e){
+  e.preventDefault();
+  const name = document.getElementById('fullName').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const dept = deptSelect.value;
+  const deptLabel = deptSelect.options[deptSelect.selectedIndex]?.text || '';
+  const doctor = doctorSelect.value || 'Any available doctor';
+  const date = apptDateInput.value;
+  const time = document.getElementById('apptTime').value;
+  const reason = document.getElementById('reason').value.trim();
+
+  const phoneOk = /^[+0-9 ()-]{7,20}$/.test(phone);
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  let valid = true;
+  valid = validateField('fg-name', name.length>1) && valid;
+  valid = validateField('fg-phone', phoneOk) && valid;
+  valid = validateField('fg-email', emailOk) && valid;
+  valid = validateField('fg-dept', !!dept) && valid;
+  valid = validateField('fg-date', !!date) && valid;
+  valid = validateField('fg-time', !!time) && valid;
+
+  if(!valid) return;
+
+  const submitBtn = apptForm.querySelector('.appt-submit');
+  const originalBtnText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Booking...';
+
+  let formError = document.getElementById('apptFormError');
+  if(!formError){
+    formError = document.createElement('div');
+    formError.id = 'apptFormError';
+    formError.style.cssText = 'display:none;background:#FDECEC;color:#C0392B;border:1px solid #F5C6C6;border-radius:10px;padding:12px 16px;font-size:.85rem;margin-top:14px;';
+    apptForm.appendChild(formError);
+  }
+  formError.style.display = 'none';
+
+  try{
+    const { error } = await supabaseClient.from('appointments').insert([{
+      full_name: name,
+      phone: phone,
+      email: email,
+      department: deptLabel,
+      doctor: doctor,
+      appointment_date: date,
+      appointment_time: time,
+      reason: reason
+    }]);
+
+    if(error) throw error;
+
+    document.getElementById('confirmName').textContent = name;
+    const d = new Date(date + 'T00:00:00');
+    document.getElementById('confirmDate').textContent = d.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'}) + ' at ' + time;
+
+    apptForm.style.display = 'none';
+    confirmBox.classList.add('show');
+  }catch(err){
+    console.error('Supabase insert failed:', err);
+    formError.textContent = "We couldn't save your appointment. Error: " + (err.message || err.hint || JSON.stringify(err));
+    formError.style.display = 'block';
+  }finally{
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalBtnText;
+  }
+});
+
+document.getElementById('bookAnother').addEventListener('click', ()=>{
+  apptForm.reset();
+  document.querySelectorAll('.form-group.invalid').forEach(fg=>fg.classList.remove('invalid'));
+  const formError = document.getElementById('apptFormError');
+  if(formError) formError.style.display = 'none';
+  populateDoctorSelect('');
+  confirmBox.classList.remove('show');
+  apptForm.style.display = 'block';
+});
+
+/* ============================================================
+   ADMIN PANEL: single-slot signup, login, bookings dashboard
+=============================================================== */
+const adminModal = document.getElementById('adminModalOverlay');
+const adminPanelLink = document.getElementById('adminPanelLink');
+const adminCloseBtn = document.getElementById('adminCloseBtn');
+const adminTabLogin = document.getElementById('adminTabLogin');
+const adminTabSignup = document.getElementById('adminTabSignup');
+const adminLoginForm = document.getElementById('adminLoginForm');
+const adminSignupForm = document.getElementById('adminSignupForm');
+const adminAuthMsg = document.getElementById('adminAuthMsg');
+const adminDashboard = document.getElementById('adminDashboard');
+const adminAuthWrap = document.getElementById('adminAuthWrap');
+
+function showAdminMsg(text, type){
+  adminAuthMsg.textContent = text;
+  adminAuthMsg.className = 'admin-msg ' + type;
+}
+function clearAdminMsg(){
+  adminAuthMsg.textContent = '';
+  adminAuthMsg.className = 'admin-msg';
+}
+function switchAdminTab(tab){
+  adminTabLogin.classList.toggle('active', tab==='login');
+  adminTabSignup.classList.toggle('active', tab==='signup');
+  adminLoginForm.classList.toggle('active', tab==='login');
+  adminSignupForm.classList.toggle('active', tab==='signup');
+  clearAdminMsg();
+}
+adminTabLogin.addEventListener('click', ()=>switchAdminTab('login'));
+adminTabSignup.addEventListener('click', ()=>switchAdminTab('signup'));
+
+async function openAdminModal(){
+  adminModal.classList.add('open');
+  clearAdminMsg();
+
+  const { data:{ session } } = await supabaseClient.auth.getSession();
+  if(session){
+    showAdminDashboard();
+    return;
+  }
+  adminDashboard.classList.remove('active');
+  adminAuthWrap.style.display = 'block';
+
+  const { data:claimed, error } = await supabaseClient.rpc('is_admin_slot_claimed');
+  if(!error && claimed === true){
+    adminTabSignup.style.display = 'none';
+    switchAdminTab('login');
+  }else{
+    adminTabSignup.style.display = 'inline-block';
+  }
+}
+
+adminPanelLink.addEventListener('click', (e)=>{
+  e.preventDefault();
+  openAdminModal();
+});
+adminCloseBtn.addEventListener('click', ()=> adminModal.classList.remove('open'));
+adminModal.addEventListener('click', (e)=>{ if(e.target===adminModal) adminModal.classList.remove('open'); });
+
+adminSignupForm.addEventListener('submit', async function(e){
+  e.preventDefault();
+  clearAdminMsg();
+  const email = document.getElementById('adminSignupEmail').value.trim();
+  const pass = document.getElementById('adminSignupPassword').value;
+  const confirmPass = document.getElementById('adminSignupConfirm').value;
+
+  if(pass.length < 6){ showAdminMsg('Password must be at least 6 characters.', 'error'); return; }
+  if(pass !== confirmPass){ showAdminMsg('Passwords do not match.', 'error'); return; }
+
+  const btn = adminSignupForm.querySelector('button[type=submit]');
+  const originalText = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Creating account...';
+
+  try{
+    const { data:claimResult, error:claimError } = await supabaseClient.rpc('claim_admin_slot', { p_email: email });
+    if(claimError) throw claimError;
+
+    if(claimResult !== true){
+      showAdminMsg('An admin account already exists for this site. Please log in instead.', 'error');
+      adminTabSignup.style.display = 'none';
+      switchAdminTab('login');
+      return;
+    }
+
+    const { error:signUpError } = await supabaseClient.auth.signUp({ email, password: pass });
+    if(signUpError){
+      await supabaseClient.rpc('unclaim_admin_slot', { p_email: email });
+      throw signUpError;
+    }
+
+    showAdminMsg('Admin account created. You can log in now.', 'success');
+    adminTabSignup.style.display = 'none';
+    switchAdminTab('login');
+  }catch(err){
+    showAdminMsg(err.message || 'Something went wrong. Please try again.', 'error');
+  }finally{
+    btn.disabled = false; btn.textContent = originalText;
+  }
+});
+
+adminLoginForm.addEventListener('submit', async function(e){
+  e.preventDefault();
+  clearAdminMsg();
+  const email = document.getElementById('adminLoginEmail').value.trim();
+  const pass = document.getElementById('adminLoginPassword').value;
+  const btn = adminLoginForm.querySelector('button[type=submit]');
+  const originalText = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Logging in...';
+
+  try{
+    const { error } = await supabaseClient.auth.signInWithPassword({ email, password: pass });
+    if(error) throw error;
+    await showAdminDashboard();
+  }catch(err){
+    showAdminMsg(err.message || 'Invalid email or password.', 'error');
+  }finally{
+    btn.disabled = false; btn.textContent = originalText;
+  }
+});
+
+async function showAdminDashboard(){
+  adminAuthWrap.style.display = 'none';
+  adminDashboard.classList.add('active');
+  await loadBookings();
+}
+
+async function loadBookings(){
+  const tbody = document.getElementById('adminBookingsBody');
+  tbody.innerHTML = `<tr><td colspan="8" class="admin-empty">Loading bookings...</td></tr>`;
+  const { data, error } = await supabaseClient.from('appointments').select('*').order('created_at', { ascending:false });
+  if(error){
+    tbody.innerHTML = `<tr><td colspan="8" class="admin-empty">Failed to load bookings: ${error.message}</td></tr>`;
+    return;
+  }
+  if(!data || data.length===0){
+    tbody.innerHTML = `<tr><td colspan="8" class="admin-empty">No appointments booked yet.</td></tr>`;
+    return;
+  }
+  tbody.innerHTML = data.map(b=>`
+    <tr>
+      <td>${b.full_name||''}</td>
+      <td>${b.phone||''}</td>
+      <td>${b.email||''}</td>
+      <td>${b.department||''}</td>
+      <td>${b.doctor||''}</td>
+      <td>${b.appointment_date||''}</td>
+      <td>${b.appointment_time||''}</td>
+      <td>${b.reason ? (b.reason.length>40 ? b.reason.slice(0,40)+'…' : b.reason) : ''}</td>
+    </tr>
+  `).join('');
+}
+
+document.getElementById('adminRefreshBtn').addEventListener('click', loadBookings);
+document.getElementById('adminLogoutBtn').addEventListener('click', async ()=>{
+  await supabaseClient.auth.signOut();
+  adminDashboard.classList.remove('active');
+  adminAuthWrap.style.display = 'block';
+  adminLoginForm.reset();
+  switchAdminTab('login');
+});
+
+/* ============================================================
+   INTERNAL LINKS: smooth-scroll via JS instead of raw #anchors
+   (avoids "open URL" prompts some viewers show for href="#...")
+=============================================================== */
+document.addEventListener('click', function(e){
+  const link = e.target.closest('a[href^="#"]');
+  if(!link) return;
+  const href = link.getAttribute('href');
+  e.preventDefault();
+  if(href.length > 1){
+    const target = document.querySelector(href);
+    if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+});
+
+const header = document.getElementById('siteHeader');
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburgerBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('open'));
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>mobileMenu.classList.remove('open')));
+
+const navAnchors = document.querySelectorAll('nav.main-nav a');
+const sections = ['home','about','departments','doctors','services','facilities','blog','contact'].map(id=>document.getElementById(id)).filter(Boolean);
+
+window.addEventListener('scroll', ()=>{
+  header.classList.toggle('scrolled', window.scrollY>10);
+
+  let current = sections[0]?.id;
+  sections.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120) current = sec.id;
+  });
+  navAnchors.forEach(a=>{
+    a.classList.toggle('active', a.getAttribute('href') === '#'+current);
+  });
+});
+
+/* ============================================================
+   EKG DIVIDER: draw-in on scroll into view
+=============================================================== */
+const ekgEls = document.querySelectorAll('[data-ekg]');
+const ekgObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('in-view');
+  });
+}, {threshold:0.4});
+ekgEls.forEach(el=>ekgObserver.observe(el));
+</script>
+</body>
+</html>
